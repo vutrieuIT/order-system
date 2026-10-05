@@ -1,4 +1,4 @@
-package com.example.order_system;
+package com.trieuvd.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

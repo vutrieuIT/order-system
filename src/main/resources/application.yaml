@@ -1,3 +1,8 @@
 spring:
   application:
-    name: order-system
+    name: order-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:6000/order_db
+    username: user
+    password: pwd

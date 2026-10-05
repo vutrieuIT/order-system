@@ -1,4 +1,4 @@
-package com.example.order_system;
+package com.trieuvd.order;
 
 import org.springframework.boot.SpringApplication;
 
