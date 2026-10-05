@@ -1,3 +1,6 @@
+# Tên project cố định, không phụ thuộc tên thư mục chứa file.
+name: order-system
+
 services:
   postgres:
     container_name: postgres
@@ -19,3 +22,5 @@ services:
 
 volumes:
   postgres:
+    # Giữ volume tạo từ lúc compose còn nằm trong order-service/.
+    name: order-service_postgres
