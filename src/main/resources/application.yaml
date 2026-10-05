@@ -6,3 +6,31 @@ spring:
     url: jdbc:postgresql://localhost:6000/order_db
     username: user
     password: pwd
+
+  jpa:
+    # Giữ connection tới hết request → cạn pool khi có I/O chậm. Tự fetch đủ dữ liệu + map DTO trong service.
+    open-in-view: false
+    hibernate:
+      # Flyway là nguồn sự thật của schema; Hibernate chỉ kiểm tra, lệch thì fail-fast lúc start.
+      ddl-auto: validate
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+  endpoint:
+    health:
+      # Chỉ cho local, không bật trên prod.
+      show-details: always
+
+---
+# Lab OSIV: ./gradlew bootRun --args='--spring.profiles.active=osiv-lab'
+spring:
+  config:
+    activate:
+      on-profile: osiv-lab
+  datasource:
+    hikari:
+      maximum-pool-size: 2
+      connection-timeout: 5000
